@@ -37,8 +37,9 @@ public class BaselineCoreferenceSystem implements CoreferenceSystem{
       }
       //--Iterate Over Coreferent Mention Pairs
       for(Entity e : clusters){
+          System.out.println("new entity");
         for(Pair<Mention, Mention> mentionPair : e.orderedMentionPairs()){
-//          System.out.println(""+mentionPair.getFirst() + " and " + mentionPair.getSecond() + " are coreferent");
+         System.out.println(""+mentionPair.getFirst() + " and " + mentionPair.getSecond() + " are coreferent");
         }
       }
     }

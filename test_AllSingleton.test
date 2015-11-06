@@ -1,0 +1,39 @@
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        cs224n.corefsystems.AllSingleton
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3/
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3/]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 1.0
+MUC Recall:    0.0
+MUC F1:        0.0
+    B^3
+B^3 Precision: 1.0
+B^3 Recall:    0.27491785323110624
+B^3 F1:        0.4312714776632302
+
+--dev--
+    MUC
+MUC Precision: 1.0
+MUC Recall:    0.0
+MUC F1:        0.0
+    B^3
+B^3 Precision: 1.0
+B^3 Recall:    0.24661604489930675
+B^3 F1:        0.39565677966101703
