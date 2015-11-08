@@ -153,6 +153,14 @@ public interface Feature {
   public static class CandidatePOSTag extends StringIndicator {
    public CandidatePOSTag(String tag){ super(tag); }
   }
+
+  public static class GenderMatch extends Indicator {
+    public GenderMatch(boolean match){ super(match); }
+  }
+
+  public static class NumberMatch extends Indicator {
+    public NumberMatch(boolean match){ super(match); }
+  }
   /*
    * TODO: Add values to the indicators here.
    */

@@ -38,17 +38,19 @@ public class ClassifierBased implements CoreferenceSystem {
       Feature.MentionDist.class,
 //      Feature.EitherHeadWordPronoun.class,
       Feature.CandidateNERTag.class,
-//      Feature.FixedNERTag.class,
+      Feature.FixedNERTag.class,
       Feature.NERTagMatch.class,    
       Feature.CandidateSpeaker.class,
       Feature.FixedSpeaker.class,
-//      Feature.SpeakerMatch.class.
-      Pair.make(Feature.CandidateSpeaker.class, Feature.FixedSpeaker.class),
-//      Feature.HeadWordMatch.class,
+      Feature.SpeakerMatch.class,
+//      Pair.make(Feature.CandidateSpeaker.class, Feature.FixedSpeaker.class),
+      Feature.HeadWordMatch.class,
       Feature.HeadWordLemmaMatch.class,
-  //    Feature.FixedPOSTag.class,
+      Feature.FixedPOSTag.class,
       Feature.CandidatePOSTag.class,
       Pair.make(Feature.FixedPOSTag.class, Feature.CandidatePOSTag.class),
+      Feature.GenderMatch.class,
+      Feature.NumberMatch.class,
 
 			//skeleton for how to create a pair feature
 			//Pair.make(Feature.IsFeature1.class, Feature.IsFeature2.class),
@@ -102,6 +104,14 @@ onPrix.sentence) - candidate.doc.indexOfSentence(candidate.sentence)));
         return new Feature.CandidatePOSTag(candidate.headToken().posTag());
       } else if(clazz.equals(Feature.FixedPOSTag.class)) {
         return new Feature.FixedPOSTag(onPrix.headToken().posTag());
+      } else if(clazz.equals(Feature.GenderMatch.class)) {
+        Pair<Boolean, Boolean> match = Util.haveGenderAndAreSameGender(onPrix, candidate);
+        boolean finalMatch = (!match.getFirst() || match.getSecond());
+        return new Feature.GenderMatch(finalMatch);
+      } else if(clazz.equals(Feature.NumberMatch.class)) {
+        Pair<Boolean, Boolean> match = Util.haveNumberAndAreSameNumber(onPrix, candidate);
+        boolean finalMatch = (!match.getFirst() || match.getSecond());
+        return new Feature.NumberMatch(finalMatch);
       }
 //			} else if(clazz.equals(Feature.NewFeature.class) {
 				/*
