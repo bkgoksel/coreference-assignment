@@ -34,6 +34,23 @@ public class ClassifierBased implements CoreferenceSystem {
 			 */
 
 			Feature.ExactMatch.class,
+      Feature.SentenceDist.class,
+      Feature.MentionDist.class,
+//      Feature.EitherHeadWordPronoun.class,
+      Feature.CandidateNERTag.class,
+      Feature.FixedNERTag.class,
+      Feature.NERTagMatch.class,    
+      Feature.CandidateSpeaker.class,
+      Feature.FixedSpeaker.class,
+      Feature.SpeakerMatch.class,
+//      Pair.make(Feature.CandidateSpeaker.class, Feature.FixedSpeaker.class),
+      Feature.HeadWordMatch.class,
+      Feature.HeadWordLemmaMatch.class,
+      Feature.FixedPOSTag.class,
+      Feature.CandidatePOSTag.class,
+      Pair.make(Feature.FixedPOSTag.class, Feature.CandidatePOSTag.class),
+      Feature.GenderMatch.class,
+      Feature.NumberMatch.class,
 
 			//skeleton for how to create a pair feature
 			//Pair.make(Feature.IsFeature1.class, Feature.IsFeature2.class),
@@ -56,15 +73,51 @@ public class ClassifierBased implements CoreferenceSystem {
 			Entity candidateCluster = input.getSecond().entity; //the cluster containing the second mention
 
 
-			//--Features
+			//--Features:w
 			if(clazz.equals(Feature.ExactMatch.class)){
 				//(exact string match)
 				return new Feature.ExactMatch(onPrix.gloss().equals(candidate.gloss()));
+      } else if(clazz.equals(Feature.SentenceDist.class)) {
+        return new Feature.SentenceDist(Math.abs(onPrix.doc.indexOfMention(onPrix)-candidate.doc.indexOfMention(candidate)));
+      } else if(clazz.equals(Feature.MentionDist.class)) {
+        return new Feature.MentionDist(Math.abs(onPrix.doc.indexOfSentence(
+onPrix.sentence) - candidate.doc.indexOfSentence(candidate.sentence)));
+      } else if(clazz.equals(Feature.EitherHeadWordPronoun.class)) {
+        return new Feature.EitherHeadWordPronoun(Pronoun.isSomePronoun(onPrix.gloss()) || Pronoun.isSomePronoun(candidate.gloss()));
+      } else if(clazz.equals(Feature.CandidateNERTag.class)) {
+        return new Feature.CandidateNERTag(candidate.headToken().nerTag());
+      } else if(clazz.equals(Feature.CandidateSpeaker.class)) {
+        return new Feature.CandidateSpeaker(candidate.headToken().speaker());
+      } else if(clazz.equals(Feature.FixedSpeaker.class)) {
+        return new Feature.FixedSpeaker(onPrix.headToken().speaker());
+      } else if(clazz.equals(Feature.HeadWordMatch.class)) {
+        return new Feature.HeadWordMatch(onPrix.equals(candidate.headWord()));
+      } else if(clazz.equals(Feature.HeadWordLemmaMatch.class)) {
+        return new Feature.HeadWordLemmaMatch(onPrix.headToken().lemma().equals(candidate.headToken().lemma()));
+      } else if(clazz.equals(Feature.FixedNERTag.class)) {
+        return new Feature.FixedNERTag(onPrix.headToken().nerTag());
+      } else if(clazz.equals(Feature.SpeakerMatch.class)) {
+        return new Feature.SpeakerMatch(candidate.headToken().speaker().equals(onPrix.headToken().speaker()));
+      } else if(clazz.equals(Feature.NERTagMatch.class)) {
+        return new Feature.NERTagMatch(candidate.headToken().nerTag().equals(onPrix.headToken().nerTag()));
+      } else if(clazz.equals(Feature.CandidatePOSTag.class)) {
+        return new Feature.CandidatePOSTag(candidate.headToken().posTag());
+      } else if(clazz.equals(Feature.FixedPOSTag.class)) {
+        return new Feature.FixedPOSTag(onPrix.headToken().posTag());
+      } else if(clazz.equals(Feature.GenderMatch.class)) {
+        Pair<Boolean, Boolean> match = Util.haveGenderAndAreSameGender(onPrix, candidate);
+        boolean finalMatch = (!match.getFirst() || match.getSecond());
+        return new Feature.GenderMatch(finalMatch);
+      } else if(clazz.equals(Feature.NumberMatch.class)) {
+        Pair<Boolean, Boolean> match = Util.haveNumberAndAreSameNumber(onPrix, candidate);
+        boolean finalMatch = (!match.getFirst() || match.getSecond());
+        return new Feature.NumberMatch(finalMatch);
+      }
 //			} else if(clazz.equals(Feature.NewFeature.class) {
 				/*
 				 * TODO: Add features to return for specific classes. Implement calculating values of features here.
 				 */
-			}
+			
 			else {
 				throw new IllegalArgumentException("Unregistered feature: " + clazz);
 			}

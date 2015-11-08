@@ -100,7 +100,67 @@ public interface Feature {
   public static class ExactMatch extends Indicator {
     public ExactMatch(boolean exactMatch){ super(exactMatch); }
   }
+
+  public static class SentenceDist extends IntIndicator {
+    public SentenceDist(int dist){ super(dist); }
+  }
+
+  public static class MentionDist extends IntIndicator {
+    public MentionDist(int dist){ super(dist); }
+  }
+
+  public static class EitherHeadWordPronoun extends Indicator {
+    public EitherHeadWordPronoun(boolean isPronoun){ super(isPronoun); }
+  }
+
+  public static class CandidateNERTag extends StringIndicator {
+    public CandidateNERTag(String tag){ super(tag); }
+  }
+
+  public static class CandidateSpeaker extends StringIndicator {
+    public CandidateSpeaker(String speaker){ super(speaker); }
+  }
   
+  public static class FixedSpeaker extends StringIndicator {
+    public FixedSpeaker(String speaker){ super(speaker); }
+  }
+
+  public static class HeadWordMatch extends Indicator {
+    public HeadWordMatch(boolean match){ super(match); }
+  }
+
+  public static class HeadWordLemmaMatch extends Indicator {
+    public HeadWordLemmaMatch(boolean match){ super(match); }
+  }
+
+  public static class FixedNERTag extends StringIndicator {
+    public FixedNERTag(String tag){ super(tag); }
+  }
+
+  public static class SpeakerMatch extends Indicator {
+    public SpeakerMatch(boolean match){ super(match); }
+  }
+
+  public static class NERTagMatch extends Indicator {
+    public NERTagMatch(boolean match){ super(match); }
+  }
+
+  public static class FixedPOSTag extends StringIndicator {
+    public FixedPOSTag(String tag){ super(tag); }
+  }
+  
+ 
+  public static class CandidatePOSTag extends StringIndicator {
+   public CandidatePOSTag(String tag){ super(tag); }
+  }
+
+  public static class GenderMatch extends Indicator {
+    public GenderMatch(boolean match){ super(match); }
+  }
+
+  public static class NumberMatch extends Indicator {
+    public NumberMatch(boolean match){ super(match); }
+  }
   /*
    * TODO: Add values to the indicators here.
    */
