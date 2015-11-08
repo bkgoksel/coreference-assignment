@@ -38,17 +38,17 @@ public class ClassifierBased implements CoreferenceSystem {
       Feature.MentionDist.class,
 //      Feature.EitherHeadWordPronoun.class,
       Feature.CandidateNERTag.class,
-      Feature.FixedNERTag.class,
-//      Feature.NERTagMatch.class,    
+//      Feature.FixedNERTag.class,
+      Feature.NERTagMatch.class,    
       Feature.CandidateSpeaker.class,
       Feature.FixedSpeaker.class,
-//    Feature.SpeakerMatch.class.
-//      Pair.make(Feature.CandidateSpeaker.class, Feature.FixedSpeaker.class),
+//      Feature.SpeakerMatch.class.
+      Pair.make(Feature.CandidateSpeaker.class, Feature.FixedSpeaker.class),
 //      Feature.HeadWordMatch.class,
       Feature.HeadWordLemmaMatch.class,
-//    Feature.FixedPOSTag.class,
-//    Feature.CandidatePOSTag.class,
-//    Pair.make(Feature.FixedPOSTag.class, Feature.CandidatePOSTag.class),
+  //    Feature.FixedPOSTag.class,
+      Feature.CandidatePOSTag.class,
+      Pair.make(Feature.FixedPOSTag.class, Feature.CandidatePOSTag.class),
 
 			//skeleton for how to create a pair feature
 			//Pair.make(Feature.IsFeature1.class, Feature.IsFeature2.class),
@@ -93,14 +93,14 @@ onPrix.sentence) - candidate.doc.indexOfSentence(candidate.sentence)));
       } else if(clazz.equals(Feature.HeadWordLemmaMatch.class)) {
         return new Feature.HeadWordLemmaMatch(onPrix.headToken().lemma().equals(candidate.headToken().lemma()));
       } else if(clazz.equals(Feature.FixedNERTag.class)) {
-        return new Feature.FixedNERTag(onPrix.headToken().nerTag())
-      } else if(clazz.equals(Feature.SpeakerMatch)) {
+        return new Feature.FixedNERTag(onPrix.headToken().nerTag());
+      } else if(clazz.equals(Feature.SpeakerMatch.class)) {
         return new Feature.SpeakerMatch(candidate.headToken().speaker().equals(onPrix.headToken().speaker()));
-      } else if(clazz.equals(Feature.NERTagMatch)) {
-        reutrn new Feature.NERTagMatch(candidate.headToken().nerTag().equals(onPrix.headToken().nerTag()));
-      } else if(clazz.equals(Feature.CandidatePOSTag)) {
+      } else if(clazz.equals(Feature.NERTagMatch.class)) {
+        return new Feature.NERTagMatch(candidate.headToken().nerTag().equals(onPrix.headToken().nerTag()));
+      } else if(clazz.equals(Feature.CandidatePOSTag.class)) {
         return new Feature.CandidatePOSTag(candidate.headToken().posTag());
-      } else if(clazz.equals(Feature.FixedPOSTag)) {
+      } else if(clazz.equals(Feature.FixedPOSTag.class)) {
         return new Feature.FixedPOSTag(onPrix.headToken().posTag());
       }
 //			} else if(clazz.equals(Feature.NewFeature.class) {

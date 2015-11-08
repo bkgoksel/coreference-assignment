@@ -1,0 +1,207 @@
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -mistakes     10
+  -documents    100
+  -model        ClassifierBased
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+----------------
+ DEBUG PRINTOUT
+----------------
+=====Document (wb.a2e.00.a2e_0025); part 006=====
+[6837]{You} -->  !{you}; !{you}; !{your}; [6837]{You}; !{you}; !{Your}; !{your}; !{you}; !{you}; !{you}; !{My}; ![6842]{You}; !{I}; !{I}; !{I}; 
+[6838]{others} -->  !{their}; 
+[6839]{the girls of Saudi Arabia} -->  [6839]{the girls of Saudi Arabia}; 
+[6840]{that girl} -->  !{she}; !{she}; !{her}; 
+[6841]{Saudi Arabia} -->  [6841]{Saudi Arabia}; 
+[6842]{My outstanding brother} -->  !{I}; !{I}; !{I}; !{I}; !{you}; !{your}; !{You}; 
+[6843]{Yemen} -->  [6843]{Yemen}; [6843]{Yemen}; [6843]{Yemen}; [6843]{Yemen}; [6843]{Yemen}; 
+[6844]{it} -->  [6844]{it}; 
+[6845]{Allah} -->  [6845]{Allah}; [6845]{Allah}; 
+
+=====Document (wb.a2e.00.a2e_0026); part 000=====
+[6863]{someone who ordered that this report be submitted} -->  !{his}; 
+[6864]{Al - Shlhoub and al - Qahtani} -->  !{them}; 
+[6865]{a technical manager} -->  !{he}; 
+[6866]{Khaled Al - Shaalan} -->  !{the famous writer and the satellite TV voice of Nasr International , Mr. Khaled Al - Shaalan}; !{The man}; !{him}; !{his}; !{his}; !{his}; !{this man 's}; !{this sick person}; 
+[6867]{A Very Ordinary Native Country} -->  !{I}; 
+[6868]{the professional player} -->  !{his}; !{his}; 
+[6869]{the title} -->  !{the title " the Legend of the Gulf "}; !{the " Legend of the Gulf " title}; [6869]{the title}; 
+[6870]{players who are skilled with their brains and their legs} -->  !{their}; !{their}; 
+[6871]{six strikers beside Al - Harthi} -->  !{them}; 
+[6872]{Night Star} -->  !{I}; !{me}; !{I}; !{I}; !{I}; !{I}; !{me}; !{I}; !{Night Star}; !{yourself}; !{you}; !{you}; !{you}; !{your}; 
+[6873]{Jasim 's} -->  !{his}; !{him}; !{a player with 45 %}; !{him}; 
+[6874]{the Saudi national team} -->  !{the national team}; !{our national team}; 
+[6875]{our} -->  !{us all}; [6875]{our}; 
+[6876]{it} -->  ![6885]{it}; ![6882]{it}; ![6879]{it}; [6876]{it}; 
+[6877]{facts} -->  !{their}; 
+[6878]{Paqueta} -->  [6878]{Paqueta}; [6878]{Paqueta}; !{Mr. Paqueta}; !{Mr. Paqueta}; !{the coach Paqueta}; !{Paqueta 's}; !{his}; !{him}; !{his}; !{his}; !{him}; !{he}; 
+[6879]{the Green} -->  !{it}; 
+[6880]{this report} -->  !{the report raised by al - Masibih to His Highness the President of the Union about Al - Harthi 's diligence and his readiness to represent the homeland , which raises a wider question mark about why this report concerned Al - Harthi alone}; [6880]{this report}; 
+[6881]{this media} -->  !{the " one and only " media}; 
+[6882]{everything I referred to above} -->  !{it}; 
+[6883]{Al - Harthi alone} -->  !{Saad Al - Harthi -LRB- the butcher -RRB-}; !{one player , the star Saad Al - Harthi}; !{his}; !{he}; !{his}; !{He}; !{he}; !{his}; !{Al - Harthi}; !{his}; !{Al - Harthi 's}; !{Al - Harthi}; !{Al - Harthi}; !{his}; !{His}; !{him}; !{he}; !{he}; 
+[6884]{their} -->  [6884]{their}; ![6877]{their}; 
+[6885]{an education} -->  !{it}; 
+[6886]{their team} -->  [6886]{their team}; 
+
+=====Document (wb.a2e.00.a2e_0027); part 001=====
+[6946]{God} -->  [6946]{God}; [6946]{God}; [6946]{God}; !{God 's}; !{God 's}; !{he}; !{him}; 
+[6947]{The precious dear Sweet Natured} -->  !{You}; !{you}; !{Your}; !{you}; 
+[6948]{Good Willed} -->  !{you}; !{my pious brother , Good Willed}; !{you}; !{your}; !{you}; 
+[6949]{Grinch .} -->  !{Grinch}; !{I}; !{me}; !{Grinch}; !{I}; !{my}; !{I}; !{my}; !{you}; !{you}; !{Grinch}; !{I}; !{my}; !{my}; 
+[6950]{Carrier of the Gazelle .} -->  !{the Carrier of the Gazelle}; !{your}; !{your}; !{you}; !{you}; !{mine}; !{I}; 
+
+=====Document (wb.a2e.00.a2e_0028); part 000=====
+[6970]{an Egyptian Village} -->  !{the village of Maniat Samanoud}; !{the town}; !{Maniat Samanoud village}; 
+[6971]{God the Glorious} -->  !{God the Protector}; !{God the Greatest}; !{God}; !{God}; 
+[6972]{its} -->  !{it}; 
+[6973]{brother Farid} -->  !{Unique of his type .}; !{my}; 
+[6974]{Sahar Kamal} -->  !{She}; 
+[6975]{Village residents} -->  !{They}; 
+[6976]{me and you} -->  !{we}; 
+[6977]{The bottles} -->  !{bottles in it}; 
+[6978]{the back of the vehicle} -->  [6978]{the back of the vehicle}; 
+[6979]{Sahar Mohamed Al Baqtarsi - 35 years old -} -->  !{Sahar}; 
+[6980]{a grocery booth} -->  !{the booth}; !{it}; !{it}; 
+[6981]{the vehicle} -->  !{A gas bottle vehicle}; !{The vehicle}; !{it}; !{the village warehouse bottle vehicle}; !{it}; [6981]{the vehicle}; !{it}; [6981]{the vehicle}; [6981]{the vehicle}; !{it}; !{it}; !{it}; !{the bottle vehicle of the village bottle warehouse}; !{it}; 
+[6982]{the houses} -->  !{the nearby houses}; 
+[6983]{Patriot} -->  !{me}; !{I}; !{me}; 
+[6984]{the house} -->  !{a house close to the fire}; [6984]{the house}; !{it}; ![6988]{the house}; 
+[6985]{the residents of Maniat Samanoud village} -->  !{They}; 
+[6986]{yooooooooooou} -->  !{Hani Ghazal}; !{brother Hani Al Ghazal}; !{You}; !{man}; !{you}; !{Hani Ghazal}; !{Hani Ghazal}; 
+[6987]{the driver} -->  !{him}; !{The driver}; !{he}; !{he}; !{He}; !{he}; !{he}; 
+[6988]{the two - story house , one apartment on the first floor and two apartments on the second floor} -->  !{the house facing the fire , which was totally destroyed , because more than one flaming bottle fell on the two - story house , one apartment on the first floor and two apartments on the second floor , and caused a fire that}; !{the house}; 
+[6989]{Everybody} -->  !{their}; 
+[6990]{the residential block} -->  [6990]{the residential block}; 
+[6991]{The village residents} -->  !{the residents}; 
+[6992]{the tank 's} -->  !{the village water tank}; 
+[6993]{the houses} -->  !{nearby houses}; 
+[6994]{Samnoud city} -->  !{Samanoud city}; 
+
+=====Document (wb.a2e.00.a2e_0031); part 000=====
+[7058]{The senator} -->  !{my}; [7058]{The senator}; !{My brother the senator}; 
+[7059]{people} -->  !{their}; 
+[7060]{he} -->  !{him}; !{his}; !{his}; 
+[7061]{the strikes} -->  !{strikes}; !{these strikes}; 
+[7062]{the majority of strikers} -->  !{they}; !{them}; 
+[7063]{Syria} -->  !{Syria}; 
+[7064]{God} -->  !{God 's}; 
+[7065]{the facts related to the strikes} -->  !{their}; 
+[7066]{Iran} -->  [7066]{Iran}; 
+[7067]{these facts} -->  !{them}; 
+[7068]{Lebanon} -->  !{Lebanon}; 
+[7069]{snakes} -->  !{they}; 
+[7070]{Iran and Syria} -->  !{them}; 
+[7071]{you} -->  ![7074]{you}; ![7074]{you}; !{My brother .}; [7071]{you}; ![7074]{you}; ![7074]{you}; 
+[7072]{these strikers} -->  !{strikers}; 
+[7073]{five members} -->  !{a Lebanese family on strike}; !{they}; !{them}; !{they}; !{they}; 
+[7074]{I'll} -->  !{My}; !{my brother}; !{you}; !{you}; !{you dangerous person}; !{My}; !{My}; !{my}; !{My}; !{My}; !{I}; !{I}; !{I}; !{My}; !{Brother , my head is raised .}; !{you}; !{you}; !{brother , my head is raised}; !{My}; !{My}; !{I}; !{My}; 
+[7075]{Hezbo Allat} -->  !{Hezbollah}; !{Hezbollah}; !{its}; !{this organization}; !{Hezbollah}; !{Hezbollah}; !{Hezbollah}; !{its}; !{its}; !{Hezbollah}; !{its}; !{it}; !{party}; !{it}; !{its}; !{Hezbollah}; !{They}; !{this party which is exploiting the needs of the people to implement its plans}; !{its}; 
+[7076]{People} -->  !{Their}; 
+[7077]{they} -->  ![7069]{they}; ![7062]{they}; ![7073]{they}; ![7073]{they}; ![7073]{they}; !{them}; 
+
+=====Document (wb.a2e.00.a2e_0032); part 001=====
+[7126]{the Iranians} -->  !{they}; !{they}; ![7145]{the Iranians}; 
+[7127]{Eid Al Adha} -->  !{the Muslims ' big feast}; 
+[7128]{the Persians} -->  !{them}; !{them}; 
+[7129]{their governments} -->  !{their}; 
+[7130]{the devil himself} -->  !{himself}; 
+[7131]{America and Israel} -->  !{the United States and Israel}; 
+[7132]{history} -->  !{its}; 
+[7133]{their} -->  ![7143]{their}; ![7147]{their}; ![7129]{their}; !{Those who wanted to quench their thirst for revenge by hanging Saddam Hussein on the first of the Adha holy days}; !{they}; 
+[7134]{this victory} -->  !{the glorious victory Hezbollah achieved over Israel}; 
+[7135]{the betrayed Iraqi President} -->  !{Saddam}; !{him}; !{him}; !{him}; !{Saddam}; !{his}; !{he}; !{his}; !{he}; !{him}; !{he}; !{his}; !{Saddam Hussein}; !{his}; !{Saddam}; !{the man}; !{him}; !{he}; !{he}; !{Saddam Hussein}; !{he}; !{his}; !{his}; !{his}; !{Saddam Hussein}; !{his}; !{Saddam 's}; !{Saddam Hussein 's}; !{Saddam}; !{Saddam Hussein}; 
+[7136]{the image of Saddam Hussein 's execution} -->  !{It}; !{it}; !{it}; !{the image of executing Saddam}; !{it}; 
+[7137]{a lot of people who used to defend Iran in the Arab street} -->  !{they}; 
+[7138]{Hezbollah} -->  [7138]{Hezbollah}; [7138]{Hezbollah}; [7138]{Hezbollah}; !{Hezbollah 's}; [7138]{Hezbollah}; !{its}; !{the most famous Arab resistance movement}; !{it}; !{it}; 
+[7139]{Iranian President Ahmadinejad 's} -->  !{his}; 
+[7140]{the libidinous fool who satisfied his cheap lust without knowing that he had caught a dangerous disease afterward} -->  !{his}; !{he}; 
+[7141]{Israel} -->  !{the Zionist enemy}; [7141]{Israel}; !{Israel}; !{Israel}; 
+[7142]{the Iranians and their agents in Iraq} -->  !{they}; 
+[7143]{The Iranians} -->  !{their}; !{They}; 
+[7144]{Saddam Hussein 's execution} -->  !{his execution}; !{the execution of Saddam Hussein}; !{executed}; !{his execution}; !{the execution of Saddam Hussein}; !{Saddam 's execution}; !{executing}; 
+[7145]{the Iranians} -->  ![7126]{the Iranians}; !{their}; 
+[7146]{the Iranians} -->  !{they}; !{their}; 
+[7147]{These powers} -->  !{the political and public powers - in the Arab countries - which stood with Hezbollah and were calling for their governments to " change " their alliances to stand with Iran instead of the United States and Israel}; !{their}; 
+[7148]{America} -->  !{the United States}; !{the United States}; !{its}; 
+[7149]{Iran} -->  [7149]{Iran}; !{its}; [7149]{Iran}; !{its}; [7149]{Iran}; !{its}; !{the Persian enemy}; [7149]{Iran}; [7149]{Iran}; !{its}; [7149]{Iran}; !{it}; !{it}; [7149]{Iran}; !{its}; !{its}; !{Iran 's}; !{its}; !{Iran 's}; !{Iran 's}; [7149]{Iran}; 
+[7150]{I} -->  [7150]{I}; [7150]{I}; [7150]{I}; 
+
+=====Document (wb.a2e.00.a2e_0033); part 002=====
+[7210]{this change} -->  [7210]{this change}; 
+[7211]{the Iraqi national state} -->  !{its}; 
+[7212]{The idea} -->  !{it}; !{it}; 
+[7213]{the provisions ration} -->  !{it}; 
+[7214]{a new oil bill being issued at the present time} -->  !{it}; 
+[7215]{the members of the current National Assembly} -->  !{their}; !{they}; !{themselves}; !{they}; 
+[7216]{Iraq} -->  !{the state}; !{the nation}; 
+[7217]{the Americans} -->  !{they}; 
+[7218]{foreign companies} -->  !{the companies}; 
+[7219]{Saudi Arabia and Iran} -->  !{their}; 
+[7220]{1st_top} -->  !{My}; 
+[7221]{the current political process} -->  !{it}; 
+[7222]{75 % of Iraqi oil to foreign companies and 25 % to Iraqis .} -->  !{This}; !{that}; 
+
+=====Document (wb.c2e.00.c2e_0001); part 000=====
+[7247]{the essence in the NeoTime gift set} -->  !{The bottle of essence itself}; !{itself}; !{it}; !{the essence}; 
+[7248]{SKII} -->  ![7251]{SKII}; ![7251]{SKII}; !{it}; 
+[7249]{NeoTime} -->  !{the NeoTime gift set}; !{It}; 
+[7250]{L - Ascorbic acid} -->  !{it}; !{It}; 
+[7251]{SKII} -->  [7251]{SKII}; ![7248]{SKII}; 
+[7252]{like} -->  !{This}; 
+[7253]{Beauty lover} -->  !{I}; !{My}; !{I}; !{I}; !{my}; !{I}; !{I}; !{I}; !{I}; !{I}; !{my}; !{I}; !{my}; !{me}; !{I}; !{I}; !{I}; !{I}; !{I}; !{I}; !{me}; !{I}; 
+[7254]{my former boyfriend} -->  !{he}; 
+[7255]{liked} -->  !{this}; 
+
+=====Document (wb.c2e.00.c2e_0002); part 000=====
+[7277]{people 's} -->  !{their}; 
+[7278]{this} -->  ![7281]{this}; ![7281]{this}; ![7283]{this}; ![7286]{this}; ![7286]{this}; !{absorb}; 
+[7279]{vegetables that contain plenty of chlorophyll , like spinach , celery or lettuce} -->  !{them}; 
+[7280]{the juice} -->  !{it}; 
+[7281]{Red face} -->  !{this}; !{this}; 
+[7282]{vegetables} -->  !{them}; 
+[7283]{Flushed face} -->  !{this}; 
+[7284]{the skin of people who consume too much salt} -->  !{it}; 
+[7285]{foods containing animal fat or protein} -->  !{it}; 
+[7286]{Oily dark face} -->  !{this}; !{this}; 
+
+=====Document (wb.c2e.00.c2e_0003); part 000=====
+[7301]{The wise man} -->  !{a wise yogi deep in the mountains of India}; !{this wise man}; [7301]{The wise man}; !{his}; !{him}; !{the wise man}; !{his}; !{The wise man 's}; !{he}; !{he}; !{you}; !{he too}; 
+[7302]{The student} -->  !{A student in a university philosophy department}; !{he}; !{him}; !{his}; !{him}; !{he}; !{he}; !{He}; !{he}; [7302]{The student}; !{he}; !{his}; !{The flustered student}; !{his}; !{I}; !{You}; 
+[7303]{his eyes} -->  [7303]{his eyes}; 
+
+
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.7972085385878489
+MUC Recall:    0.3666918429003021
+MUC F1:        0.5023279875840662
+    B^3
+B^3 Precision: 0.9009457645615914
+B^3 Recall:    0.4089684359309485
+B^3 F1:        0.5625687240474572
+
+--dev--
+    MUC
+MUC Precision: 0.8110065170166546
+MUC Recall:    0.49079754601226994
+MUC F1:        0.6115206115206115
+    B^3
+B^3 Precision: 0.8693317186219132
+B^3 Recall:    0.4432722945516806
+B^3 F1:        0.587154483412551

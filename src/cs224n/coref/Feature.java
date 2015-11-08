@@ -140,6 +140,19 @@ public interface Feature {
   public static class SpeakerMatch extends Indicator {
     public SpeakerMatch(boolean match){ super(match); }
   }
+
+  public static class NERTagMatch extends Indicator {
+    public NERTagMatch(boolean match){ super(match); }
+  }
+
+  public static class FixedPOSTag extends StringIndicator {
+    public FixedPOSTag(String tag){ super(tag); }
+  }
+  
+ 
+  public static class CandidatePOSTag extends StringIndicator {
+   public CandidatePOSTag(String tag){ super(tag); }
+  }
   /*
    * TODO: Add values to the indicators here.
    */

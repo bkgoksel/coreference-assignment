@@ -1,0 +1,351 @@
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8250401284109149
+MUC Recall:    0.5823262839879154
+MUC F1:        0.6827540402922293
+    B^3
+B^3 Precision: 0.8480569794120494
+B^3 Recall:    0.5433273261927172
+B^3 F1:        0.6623224499901854
+
+--dev--
+    MUC
+MUC Precision: 0.814078452444922
+MUC Recall:    0.6638913234005258
+MUC F1:        0.7313540912382331
+    B^3
+B^3 Precision: 0.8078970909119615
+B^3 Recall:    0.5701236233588578
+B^3 F1:        0.6684967968939938
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.831651619755709
+MUC Recall:    0.5913897280966768
+MUC F1:        0.6912381372765395
+    B^3
+B^3 Precision: 0.8511557380830973
+B^3 Recall:    0.550114043843417
+B^3 F1:        0.6682977554453196
+
+--dev--
+    MUC
+MUC Precision: 0.8185245018847603
+MUC Recall:    0.6660823838737949
+MUC F1:        0.7344769267939116
+    B^3
+B^3 Precision: 0.8118528688195386
+B^3 Recall:    0.5729728417817892
+B^3 F1:        0.6718096606600988
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8332451032292219
+MUC Recall:    0.5944108761329305
+MUC F1:        0.6938505620454045
+    B^3
+B^3 Precision: 0.8518402944905452
+B^3 Recall:    0.5523233031857543
+B^3 F1:        0.6701373629373997
+
+--dev--
+    MUC
+MUC Precision: 0.8222582387898433
+MUC Recall:    0.6669588080631026
+MUC F1:        0.7365110089523348
+    B^3
+B^3 Precision: 0.8150809235497393
+B^3 Recall:    0.5731094719613379
+B^3 F1:        0.6730065259230836
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8332451032292219
+MUC Recall:    0.5944108761329305
+MUC F1:        0.6938505620454045
+    B^3
+B^3 Precision: 0.8518402944905452
+B^3 Recall:    0.5523233031857543
+B^3 F1:        0.6701373629373997
+
+--dev--
+    MUC
+MUC Precision: 0.8222582387898433
+MUC Recall:    0.6669588080631026
+MUC F1:        0.7365110089523348
+    B^3
+B^3 Precision: 0.8150809235497393
+B^3 Recall:    0.5731094719613379
+B^3 F1:        0.6730065259230836
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8351063829787234
+MUC Recall:    0.5929003021148036
+MUC F1:        0.6934628975265017
+    B^3
+B^3 Precision: 0.8566640934982724
+B^3 Recall:    0.5519175737525273
+B^3 F1:        0.6713248922617002
+
+--dev--
+    MUC
+MUC Precision: 0.8249048395867319
+MUC Recall:    0.6647677475898335
+MUC F1:        0.7362290706139287
+    B^3
+B^3 Precision: 0.8182408537482961
+B^3 Recall:    0.5716461843625772
+B^3 F1:        0.6730680251116614
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8221512247071352
+MUC Recall:    0.5830815709969789
+MUC F1:        0.6822801590808663
+    B^3
+B^3 Precision: 0.8427620687071591
+B^3 Recall:    0.5452886943472343
+B^3 F1:        0.6621495990239842
+
+--dev--
+    MUC
+MUC Precision: 0.8218872138470128
+MUC Recall:    0.6450482033304119
+MUC F1:        0.7228087404861282
+    B^3
+B^3 Precision: 0.8173305044226283
+B^3 Recall:    0.5568313318221039
+B^3 F1:        0.6623895691357711
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8385026737967914
+MUC Recall:    0.5921450151057401
+MUC F1:        0.6941124391323595
+    B^3
+B^3 Precision: 0.859789997349806
+B^3 Recall:    0.5500611800995023
+B^3 F1:        0.6709035792495721
+
+--dev--
+    MUC
+MUC Precision: 0.8211206896551724
+MUC Recall:    0.6678352322524101
+MUC F1:        0.736587723537941
+    B^3
+B^3 Precision: 0.8152735063603477
+B^3 Recall:    0.5742921277191795
+B^3 F1:        0.6738870696826169
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8314271506713078
+MUC Recall:    0.6314199395770392
+MUC F1:        0.7177505902554195
+    B^3
+B^3 Precision: 0.8336648639214519
+B^3 Recall:    0.5874405284709195
+B^3 F1:        0.6892219688297959
+
+--dev--
+    MUC
+MUC Precision: 0.8168343038644785
+MUC Recall:    0.6761612620508326
+MUC F1:        0.7398705346439702
+    B^3
+B^3 Precision: 0.7960494647631184
+B^3 Recall:    0.594671932279762
+B^3 F1:        0.6807808873977623
+--------------------
+ COREFERENCE TESTER
+--------------------
+Options:
+  -data         dev
+  -model        ClassifierBased
+  -documents    100
+  -path         /afs/ir/class/cs224n/data/pa3
+
+Creating model...done
+Reading documents (lazily)...[/afs/ir/class/cs224n/data/pa3]...[100 train]...[63 DEV]...done
+----------
+ TRAINING
+----------
+---------
+ TESTING
+---------
+--------------------
+ COREFERENCE SCORES
+--------------------
+--Training--
+    MUC
+MUC Precision: 0.8314271506713078
+MUC Recall:    0.6314199395770392
+MUC F1:        0.7177505902554195
+    B^3
+B^3 Precision: 0.8336648639214519
+B^3 Recall:    0.5874405284709195
+B^3 F1:        0.6892219688297959
+
+--dev--
+    MUC
+MUC Precision: 0.8168343038644785
+MUC Recall:    0.6761612620508326
+MUC F1:        0.7398705346439702
+    B^3
+B^3 Precision: 0.7960494647631184
+B^3 Recall:    0.594671932279762
+B^3 F1:        0.6807808873977623
