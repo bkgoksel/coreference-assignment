@@ -147,6 +147,18 @@ public class Mention implements Serializable, Decodable {
       return false;
     }
   }
+  /**
+    * Remove coreference from mention
+    * @return boolean true if removed coreference successfully, false if wasn't coreferent to any entity
+    */
+    public boolean removeCoreference() {
+        if (corefferentWith != null) {
+            corefferentWith = null;
+            return true;
+        } else {
+            return false;
+        }
+    }
 
   /** Returns the entity the mention is corefferent with.
     * @return The entity the mention is corefferent with

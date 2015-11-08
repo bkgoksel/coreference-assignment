@@ -93,6 +93,17 @@ public class Entity implements Serializable, Decodable, Iterable<Mention> {
   }
 
   /**
+    * Remove a mention from an entity
+    * @param mention The mention to remove 
+    **/
+  public void remove(Mention mention) {
+      Boolean result = mentions.remove(mention);
+      if (!result) {
+          throw new IllegalArgumentException("Trying to remove mention that is not coreferrant with entity");
+      }
+  }
+
+  /**
    * The size of the entity (the number of mentions referring to it)
    * @return The number of clusters referring to this entity
    */
