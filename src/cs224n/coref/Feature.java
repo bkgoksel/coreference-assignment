@@ -100,7 +100,38 @@ public interface Feature {
   public static class ExactMatch extends Indicator {
     public ExactMatch(boolean exactMatch){ super(exactMatch); }
   }
+
+  public static class SentenceDist extends IntIndicator {
+    public SentenceDist(int dist){ super(dist); }
+  }
+
+  public static class MentionDist extends IntIndicator {
+    public MentionDist(int dist){ super(dist); }
+  }
+
+  public static class EitherHeadWordPronoun extends Indicator {
+    public EitherHeadWordPronoun(boolean isPronoun){ super(isPronoun); }
+  }
+
+  public static class CandidateNERTag extends StringIndicator {
+    public CandidateNERTag(String tag){ super(tag); }
+  }
+
+  public static class CandidateSpeaker extends StringIndicator {
+    public CandidateSpeaker(String speaker){ super(speaker); }
+  }
   
+  public static class FixedSpeaker extends StringIndicator {
+    public FixedSpeaker(String speaker){ super(speaker); }
+  }
+
+  public static class HeadWordMatch extends Indicator {
+    public HeadWordMatch(boolean match){ super(match); }
+  }
+
+  public static class HeadWordLemmaMatch extends Indicator {
+    public HeadWordLemmaMatch(boolean match){ super(match); }
+  }
   /*
    * TODO: Add values to the indicators here.
    */
