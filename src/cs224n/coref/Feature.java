@@ -132,6 +132,14 @@ public interface Feature {
   public static class HeadWordLemmaMatch extends Indicator {
     public HeadWordLemmaMatch(boolean match){ super(match); }
   }
+
+  public static class FixedNERTag extends StringIndicator {
+    public FixedNERTag(String tag){ super(tag); }
+  }
+
+  public static class SpeakerMatch extends Indicator {
+    public SpeakerMatch(boolean match){ super(match); }
+  }
   /*
    * TODO: Add values to the indicators here.
    */
