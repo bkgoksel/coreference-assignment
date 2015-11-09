@@ -15,9 +15,9 @@ import cs224n.ling.*;
 
 public class RuleBased implements CoreferenceSystem {
 
-  private static final int N_PASSES = 9; // INCREMENT THIS EVERY TIME YOU ADD A PASS
+  private static final int N_PASSES = 10; // INCREMENT THIS EVERY TIME YOU ADD A PASS
                                          // ALSO USEFUL TO DEBUG STEP BY STEP
-  private static final int PRONOUN_PASS = 8; // the index of the pass where we check for pronouns(Used for separate candidates selection alg.)
+  private static final int PRONOUN_PASS = 9; // the index of the pass where we check for pronouns(Used for separate candidates selection alg.)
 
 	@Override
 	public void train(Collection<Pair<Document, List<Entity>>> trainingData) {
@@ -148,15 +148,24 @@ public class RuleBased implements CoreferenceSystem {
             Pronoun currPronoun = Pronoun.getPronoun(curr.headWord());
             Pair<Boolean, Boolean> genderAgreement = Util.haveGenderAndAreSameGender(curr, candidateEntity);
             Pair<Boolean, Boolean> numberAgreement = Util.haveNumberAndAreSameNumber(curr, candidateEntity);
-            boolean speakerAgreement = curr.headToken().speaker().equals(candidate.headToken().speaker());
             return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (numberAgreement.getSecond());
-            //return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (!numberAgreement.getFirst() || numberAgreement.getSecond()) && speakerAgreement;
         }
         return false;
     }
 
-    /*private boolean pronounMatch(Mention curr, Mention candidate) {
-    }*/
+    private boolean quoteMatch(Mention curr, Mention candidate, Entity candidateEntity) {
+        if (curr.headToken().isQuoted()) {
+            for (Mention m : candidateEntity.mentions) {
+                String speaker = curr.headToken().speaker();
+                if (m.gloss().contains(speaker) && curr.sentence == m.sentence) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
 
 
     /* UTILITY */
@@ -190,6 +199,8 @@ public class RuleBased implements CoreferenceSystem {
             case 7:
                 return sameSentenceFirstSecondPersonMatch(curr, candidate);
             case 8:
+                return quoteMatch(curr, candidate, candidateEntity);
+            case 9:
                 return pronounMatch(curr, candidate, candidateEntity);
         }
         
@@ -223,15 +234,22 @@ public class RuleBased implements CoreferenceSystem {
 
     private List<Integer> getCandidates(List<ClusteredMention> clusteredMentions, int index) {
           Map<Entity, Integer> entityToIndex = new HashMap<Entity, Integer>();
+          List<Integer> first = new ArrayList<Integer>();
           for (int j = index - 1; j >= 0; j--) {
+              first.add(j);
               entityToIndex.put(clusteredMentions.get(j).entity, j); //find first index for each entity
           }
-          List<Integer> indices = new ArrayList<Integer>(); //sorting it so that we are traversing r to l
-          for (int val : entityToIndex.values()) {
-            indices.add(val);
+          Set<Entity> added = new HashSet<Entity>();
+          List<Integer> finalIndices = new ArrayList<Integer>();
+          for (int elem : first) {
+              Entity elemEntity = clusteredMentions.get(elem).entity;
+              if (!added.contains(elemEntity)) {
+                  int bestInteger = entityToIndex.get(elemEntity);
+                  finalIndices.add(bestInteger);
+                  added.add(elemEntity);
+              }
           }
-          Collections.sort(indices, Collections.reverseOrder()); //make that we are going high to low
-          return indices;
+          return finalIndices;
     }
 
 
@@ -287,5 +305,4 @@ public class RuleBased implements CoreferenceSystem {
         }
         return result;
     }
-
 }
