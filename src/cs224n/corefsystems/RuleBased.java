@@ -15,8 +15,9 @@ import cs224n.ling.*;
 
 public class RuleBased implements CoreferenceSystem {
 
-  private static final int N_PASSES = 8; // INCREMENT THIS EVERY TIME YOU ADD A PASS
+  private static final int N_PASSES = 9; // INCREMENT THIS EVERY TIME YOU ADD A PASS
                                          // ALSO USEFUL TO DEBUG STEP BY STEP
+  private static final int PRONOUN_PASS = 8; // the index of the pass where we check for pronouns(Used for separate candidates selection alg.)
 
 	@Override
 	public void train(Collection<Pair<Document, List<Entity>>> trainingData) {
@@ -30,7 +31,12 @@ public class RuleBased implements CoreferenceSystem {
        List<ClusteredMention> clusteredMentions = buildSingletonClusters(doc, mentionToIndex);
        for (int pass = 0; pass < N_PASSES; pass++) {
            for (int i = 0; i < clusteredMentions.size(); i++) {
-               List<Integer> candidates = getCandidates(clusteredMentions, i);
+               List<Integer> candidates;
+               if (pass == PRONOUN_PASS) {
+                   candidates = getPronominalCandidates(clusteredMentions, i);
+               } else {
+                   candidates = getCandidates(clusteredMentions, i);
+               }
                //loop through sorted candidates
                for (int j : candidates) {
                    //check for whatever the current pass is asking you to check
@@ -48,7 +54,7 @@ public class RuleBased implements CoreferenceSystem {
 
     private boolean exactStringMatch(Mention curr, Mention candidate) {
         if (!Pronoun.isSomePronoun(curr.headWord())) {
-            return curr.gloss().equals(candidate.gloss());
+            return curr.gloss().toLowerCase().equals(candidate.gloss().toLowerCase());
         }
         return false;
     }      
@@ -81,7 +87,7 @@ public class RuleBased implements CoreferenceSystem {
 
     private boolean exactHeadWordMatch(Mention curr, Mention candidate) {
         if(!Pronoun.isSomePronoun(curr.headWord())) {
-            return curr.headWord().equals(candidate.headWord());
+            return curr.headWord().toLowerCase().equals(candidate.headWord().toLowerCase());
         }
         return false;
     }
@@ -104,10 +110,11 @@ public class RuleBased implements CoreferenceSystem {
         return false;
     }
 
+    // TODO: Implement
     private boolean relaxedHeadWordMatch(Mention curr, Mention candidate) {
         if (!Pronoun.isSomePronoun(curr.headWord())) {
             if (curr.headToken().nerTag().equals(candidate.headToken().nerTag())) {
-                
+                return false;
             }
         }
         return false;
@@ -115,10 +122,26 @@ public class RuleBased implements CoreferenceSystem {
 
     private boolean headWordLemmaMatch(Mention curr, Mention candidate) {
         if(!Pronoun.isSomePronoun(curr.headWord())) {
-            return curr.headToken().lemma().equals(candidate.headToken().lemma());
+            if (curr.headToken().lemma().equals(candidate.headToken().lemma())) {
+               Pair<Boolean, Boolean> genderAgreement = Util.haveGenderAndAreSameGender(curr, candidate);
+               Pair<Boolean, Boolean> numberAgreement = Util.haveNumberAndAreSameNumber(curr, candidate);
+               return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (!numberAgreement.getFirst() || numberAgreement.getSecond());
+            }
         }
         return false;
     }
+
+    private boolean sameSentenceFirstSecondPersonMatch(Mention curr, Mention candidate) {
+        if ((curr.sentence == candidate.sentence) && Pronoun.isSomePronoun(curr.headWord()) && Pronoun.isSomePronoun(candidate.headWord())) {
+            Pronoun currPronoun = Pronoun.getPronoun(curr.headWord());
+            Pronoun candidatePronoun = Pronoun.getPronoun(candidate.headWord());
+            if(currPronoun != null && candidatePronoun != null && (currPronoun.speaker == Pronoun.Speaker.FIRST_PERSON || currPronoun.speaker == Pronoun.Speaker.SECOND_PERSON)) {
+                return (currPronoun.speaker == candidatePronoun.speaker) && (currPronoun.plural == candidatePronoun.plural);
+            }
+        }
+        return false;
+    }
+
 
     private boolean pronounMatch(Mention curr, Mention candidate) {
         if (Pronoun.isSomePronoun(curr.headWord())) {
@@ -161,7 +184,9 @@ public class RuleBased implements CoreferenceSystem {
             case 6:
                 return headWordLemmaMatch(curr, candidate);
             case 7:
-                return pronounMatch(curr, candidate);
+                return sameSentenceFirstSecondPersonMatch(curr, candidate);
+            case 8:
+                //return pronounMatch(curr, candidate);
         }
         
         return false;
@@ -193,6 +218,20 @@ public class RuleBased implements CoreferenceSystem {
     }
 
     private List<Integer> getCandidates(List<ClusteredMention> clusteredMentions, int index) {
+          Map<Entity, Integer> entityToIndex = new HashMap<Entity, Integer>();
+          for (int j = index - 1; j >= 0; j--) {
+              entityToIndex.put(clusteredMentions.get(j).entity, j); //find first index for each entity
+          }
+          List<Integer> indices = new ArrayList<Integer>(); //sorting it so that we are traversing r to l
+          for (int val : entityToIndex.values()) {
+            indices.add(val);
+          }
+          Collections.sort(indices, Collections.reverseOrder()); //make that we are going high to low
+          return indices;
+    }
+
+
+    private List<Integer> getPronominalCandidates(List<ClusteredMention> clusteredMentions, int index) {
         Map<Entity, Integer> entityToIndex = new HashMap<Entity, Integer>();
         for (int j = index - 1; j >= 0; j--) {
             entityToIndex.put(clusteredMentions.get(j).entity, j); //find first index for each entity
@@ -200,7 +239,7 @@ public class RuleBased implements CoreferenceSystem {
         //first pass get entity to first endices
         List<Integer> sentenceOrdered = new ArrayList<Integer>();
         List<Integer> temp = new ArrayList<Integer>();
-        Sentence currSentence = null;
+        Sentence currSentence = clusteredMentions.get(index).mention.sentence;
         for (int j = index - 1; j >= 0; j--) {
             Mention curr = clusteredMentions.get(j).mention;
             if (currSentence == curr.sentence) {
