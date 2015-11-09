@@ -197,12 +197,31 @@ public class RuleBased implements CoreferenceSystem {
         for (int j = index - 1; j >= 0; j--) {
             entityToIndex.put(clusteredMentions.get(j).entity, j); //find first index for each entity
         }
-        List<Integer> indices = new ArrayList<Integer>(); //sorting it so that we are traversing r to l
-        for (int val : entityToIndex.values()) {
-            indices.add(val);
+        //first pass get entity to first endices
+        List<Integer> sentenceOrdered = new ArrayList<Integer>();
+        List<Integer> temp = new ArrayList<Integer>();
+        Sentence currSentence = null;
+        for (int j = index - 1; j >= 0; j--) {
+            Mention curr = clusteredMentions.get(j).mention;
+            if (currSentence == curr.sentence) {
+                temp.add(j);
+            } else {
+                currSentence = curr.sentence;
+                Collections.reverse(temp);
+                sentenceOrdered.addAll(temp);
+            }
         }
-        Collections.sort(indices, Collections.reverseOrder()); //make that we are going high to low
-        return indices;
+        Set<Entity> added = new HashSet<Entity>();
+        List<Integer> finalIndices = new ArrayList<Integer>();
+        for (int elem : sentenceOrdered) {
+            Entity elemEntity = clusteredMentions.get(elem).entity;
+            if (!added.contains(elemEntity)) {
+                int bestInteger = entityToIndex.get(elemEntity);
+                finalIndices.add(bestInteger);
+                added.add(elemEntity);
+            }
+        }
+        return finalIndices;
     }
 
     private List<ClusteredMention> buildSingletonClusters(Document doc, Map<Mention, Integer> mentionToIndex) {
