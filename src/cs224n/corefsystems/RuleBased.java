@@ -143,16 +143,20 @@ public class RuleBased implements CoreferenceSystem {
     }
 
 
-    private boolean pronounMatch(Mention curr, Mention candidate) {
+    private boolean pronounMatch(Mention curr, Mention candidate, Entity candidateEntity) {
         if (Pronoun.isSomePronoun(curr.headWord())) {
             Pronoun currPronoun = Pronoun.getPronoun(curr.headWord());
-            Pair<Boolean, Boolean> genderAgreement = Util.haveGenderAndAreSameGender(curr, candidate);
-            Pair<Boolean, Boolean> numberAgreement = Util.haveNumberAndAreSameNumber(curr, candidate);
+            Pair<Boolean, Boolean> genderAgreement = Util.haveGenderAndAreSameGender(curr, candidateEntity);
+            Pair<Boolean, Boolean> numberAgreement = Util.haveNumberAndAreSameNumber(curr, candidateEntity);
             boolean speakerAgreement = curr.headToken().speaker().equals(candidate.headToken().speaker());
-            return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (!numberAgreement.getFirst() || numberAgreement.getSecond()) && speakerAgreement;
+            return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (numberAgreement.getSecond());
+            //return (!genderAgreement.getFirst() || genderAgreement.getSecond()) && (!numberAgreement.getFirst() || numberAgreement.getSecond()) && speakerAgreement;
         }
         return false;
     }
+
+    /*private boolean pronounMatch(Mention curr, Mention candidate) {
+    }*/
 
 
     /* UTILITY */
@@ -186,7 +190,7 @@ public class RuleBased implements CoreferenceSystem {
             case 7:
                 return sameSentenceFirstSecondPersonMatch(curr, candidate);
             case 8:
-                //return pronounMatch(curr, candidate);
+                return pronounMatch(curr, candidate, candidateEntity);
         }
         
         return false;
